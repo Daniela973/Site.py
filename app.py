@@ -3,7 +3,7 @@ import streamlit.components.v1 as components
 
 st.set_page_config(
     page_title="PrimeTech | Engenharia de Software e Soluções Digitais de Elite",
-    page_layout="wide",
+    layout="wide",
     initial_sidebar_state="collapsed"
 )
 
@@ -148,4 +148,3 @@ html_code = """
 """
 
 components.html(html_code, height=900, scrolling=True)
-
