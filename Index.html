@@ -1,9 +1,20 @@
+import streamlit as st
+import streamlit.components.v1 as components
+
+# Configuração da página para ocupar a largura total e tela cheia (Dark Mode)
+st.set_page_config(
+    page_title="PrimeTech | Engenharia de Software e Soluções Digitais de Elite",
+    page_layout="wide",
+    initial_sidebar_state="collapsed"
+)
+
+# Código HTML e CSS do site da PrimeTech
+html_code = """
 <!DOCTYPE html>
 <html lang="pt-PT">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrimeTech | Engenharia de Software e Soluções Digitais de Elite</title>
     <style>
         :root {
             --bg-deep: #0b0b14;
@@ -23,7 +34,7 @@
             line-height: 1.6;
         }
         header {
-            padding: 2rem 5%;
+            padding: 1.5rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -38,13 +49,13 @@
         .logo span { color: var(--accent-cyan); }
         
         .hero {
-            padding: 6rem 5% 4rem 5%;
+            padding: 4rem 5% 3rem 5%;
             text-align: center;
             max-width: 900px;
             margin: 0 auto;
         }
         .hero h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 1.5rem;
             letter-spacing: -1px;
@@ -56,9 +67,9 @@
             -webkit-text-fill-color: transparent;
         }
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-muted);
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
         
         .cta-btn {
@@ -72,17 +83,16 @@
             cursor: pointer;
             text-decoration: none;
             box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
-            transition: transform 0.2s ease;
+            display: inline-block;
         }
-        .cta-btn:hover { transform: translateY(-2px); }
 
         .section {
-            padding: 4rem 5%;
+            padding: 3rem 5%;
             max-width: 1100px;
             margin: 0 auto;
         }
         .section-title {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 2rem;
             text-align: center;
             color: #fff;
@@ -90,14 +100,14 @@
         
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
         .card {
             background-color: var(--bg-card);
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 12px;
-            padding: 2rem;
+            padding: 1.5rem;
             position: relative;
             overflow: hidden;
         }
@@ -108,15 +118,15 @@
             background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
         }
         .card h3 { color: #fff; margin-top: 0; }
-        .card p { color: var(--text-muted); font-size: 0.95rem; }
+        .card p { color: var(--text-muted); font-size: 0.9rem; }
 
         .platforms-badge {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1rem;
             flex-wrap: wrap;
-            margin-top: 3rem;
-            padding: 1.5rem;
+            margin-top: 2.5rem;
+            padding: 1rem;
             background: rgba(255,255,255,0.02);
             border-radius: 8px;
             border: 1px solid rgba(255,255,255,0.05);
@@ -124,92 +134,89 @@
         .badge-item {
             color: var(--text-muted);
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             letter-spacing: 1px;
         }
 
         footer {
             text-align: center;
-            padding: 3rem;
+            padding: 2rem;
             color: var(--text-muted);
             border-top: 1px solid rgba(255,255,255,0.05);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
     <header>
         <div class="logo">Prime<span>Tech</span></div>
-        <div><a href="#contato" class="cta-btn" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">Iniciar Projeto</a></div>
+        <div><a href="#contato" class="cta-btn" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Iniciar Projeto</a></div>
     </header>
 
-    <!-- Hero Section (Captura de Leads) -->
     <section class="hero">
-        <h1>Engenharia de Software de Elite para <span>Ecossistemas Digitais</span> de Alta Performance.</h1>
-        <p>Desenvolvemos aplicações web, sistemas corporativos robustos e arquiteturas em nuvem sob medida. Transformamos desafios complexos em produtos digitais escaláveis.</p>
+        <h1>Engenharia de Software de Elite para <span>Ecossistemas Digitais</span>.</h1>
+        <p>Desenvolvemos aplicações web, sistemas corporativos robustos e arquiteturas em nuvem sob medida para o seu negócio.</p>
         <a href="#contato" class="cta-btn">Solicitar Diagnóstico & Arquitetura Gratuita</a>
 
-        <!-- Plataformas Atendidas -->
         <div class="platforms-badge">
-            <span class="badge-item">LINKEDIN PARTNERS</span>
-            <span class="badge-item">UPWORK TOP RATED</span>
-            <span class="badge-item">FIVERR PRO</span>
-            <span class="badge-item">WORKANA ELITE</span>
+            <span class="badge-item">LINKEDIN</span>
+            <span class="badge-item">UPWORK</span>
+            <span class="setItem badge-item">FIVERR</span>
+            <span class="badge-item">WORKANA</span>
             <span class="badge-item">99FREELAS</span>
         </div>
     </section>
 
-    <!-- Seção de Portfólio / Projetos Prontos -->
     <section class="section">
-        <h2 class="section-title">Cases de Sucesso & Projetos Desenvolvidos</h2>
+        <h2 class="section-title">Cases de Sucesso & Projetos</h2>
         <div class="grid-3">
             <div class="card">
                 <h3>SaaS de Gestão & Analytics</h3>
-                <p>Plataforma de alta volumetria com painéis em tempo real, processamento seguro de dados e infraestrutura elástica em nuvem.</p>
+                <p>Plataforma de alta volumetria com painéis em tempo real e infraestrutura elástica em nuvem.</p>
             </div>
             <div class="card">
-                <h3>Ecossistema de Logística & Automação</h3>
-                <p>Arquitetura orientada a microsserviços integrando múltiplos gateways de pagamento e otimização de rotas com baixa latência.</p>
+                <h3>Automação & Logística</h3>
+                <p>Microsserviços integrados a múltiplos gateways com redução drástica de latência.</p>
             </div>
             <div class="card">
-                <h3>Plataforma de E-commerce Enterprise</h3>
-                <p>Desenvolvimento focado em conversão extrema, alta resiliência a picos de tráfego e integração avançada com ERPs corporativos.</p>
+                <h3>E-commerce Enterprise</h3>
+                <p>Focado em conversão extrema e alta resiliência a picos de tráfego corporativo.</p>
             </div>
         </div>
     </section>
 
-    <!-- Seção de Especificações Técnicas -->
     <section class="section" style="background: rgba(255,255,255,0.01);">
-        <h2 class="section-title">Nossos Padrões de Engenharia & Especificações</h2>
+        <h2 class="section-title">Especificações Técnicas</h2>
         <div class="grid-3">
             <div class="card">
-                <h3>Stack Tecnológica Moderna</h3>
-                <p>Utilização rigorosa de ecossistemas maduros como React.js, Next.js, Node.js, Python/FastAPI, PostgreSQL e AWS para máxima performance.</p>
+                <h3>Stack Moderna</h3>
+                <p>React.js, Next.js, Node.js, Python/FastAPI, PostgreSQL e AWS Cloud Architecture.</p>
             </div>
             <div class="card">
-                <h3>Arquitetura & Segurança</h3>
-                <p>Sistemas projetados seguindo padrões corporativos de segurança de dados, criptografia ponta a ponta e escalabilidade horizontal automatizada.</p>
+                <h3>Segurança Máxima</h3>
+                <p>Criptografia ponta a ponta e padrões rígidos de proteção de dados corporativos.</p>
             </div>
             <div class="card">
-                <h3>Metodologia Ágil & CI/CD</h3>
-                <p>Ciclos de entrega contínua, pipelines automatizados de testes e documentação técnica detalhada (padrão idêntico aos nossos blueprints de sistema).</p>
+                <h3>Metodologia Ágil</h3>
+                <p>Pipelines automatizados de CI/CD e documentação enterprise rigorosa.</p>
             </div>
         </div>
     </section>
 
-    <!-- Seção de Contato / Captação de Lead -->
-    <section id="contato" class="section" style="text-align: center; max-width: 600px;">
+    <section id="contato" class="section" style="text-align: center;">
         <h2 class="section-title">Vamos Escalar o seu Negócio?</h2>
-        <p style="color: var(--text-muted); margin-bottom: 2rem;">Preencha os seus dados ou utilize o canal onde nos encontrou (Upwork, Fiverr, Workana, 99freelas ou LinkedIn) para iniciar uma consultoria técnica direta.</p>
-        <a href="mailto:contato@primetech.com" class="cta-btn">Falar com um Arquiteto de Software</a>
+        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Fale diretamente com nossa equipe de arquitetura através das plataformas globais.</p>
+        <a href="mailto:contato@primetech.com" class="cta-btn">Falar com Arquiteto</a>
     </section>
 
-    <!-- Rodapé -->
     <footer>
-        <p>&copy; 2026 PrimeTech. Todos os direitos reservados. Engenharia de Software e Inovação Tecnológica.</p>
+        <p>&copy; 2026 PrimeTech. Todos os direitos reservados.</p>
     </footer>
 
 </body>
 </html>
+"""
+
+# Renderiza o site completo dentro do Streamlit ajustando a altura
+components.html(html_code, height=1400, scrolling=True)
